@@ -1,0 +1,164 @@
+{
+  "ADEN_WINDOW_ANCHOR_IMG": {
+    "height": 18,
+    "left": 0,
+    "top": 0,
+    "width": 101
+  },
+  "BUTTON_POPUP_SAVE_IMG": {
+    "height": 27,
+    "left": 792,
+    "top": 167,
+    "width": 72
+  },
+  "CUSTOMER_NAME_IMG": {
+    "height": 14,
+    "left": 14,
+    "top": 87,
+    "width": 93
+  },
+  "CUSTOMER_NUMBER_IMG": {
+    "height": 21,
+    "left": 16,
+    "top": 59,
+    "width": 88
+  },
+  "HEADER_ITEM_DESC_IMG": {
+    "height": 19,
+    "left": 287,
+    "top": 241,
+    "width": 150
+  },
+  "ITEM_TEXT_BOX_FULL": {
+    "height": 127,
+    "left": 215,
+    "top": 260,
+    "width": 300
+  },
+  "JOB_CARD_DATE": {
+    "height": 26,
+    "left": 452,
+    "top": 28,
+    "width": 89
+  },
+  "JOB_CARD_LOADED_CUE_IMG": {
+    "height": 13,
+    "left": 672,
+    "top": 497,
+    "width": 13
+  },
+  "JOB_CLASS_COND": {
+    "height": 14,
+    "left": 88,
+    "top": 497,
+    "width": 25
+  },
+  "JOB_CLASS_E": {
+    "height": 15,
+    "left": 90,
+    "top": 497,
+    "width": 30
+  },
+  "JOB_CLASS_EMPTY_IMG": {
+    "height": 25,
+    "left": 144,
+    "top": 491,
+    "width": 120
+  },
+  "JOB_CLASS_F": {
+    "height": 15,
+    "left": 90,
+    "top": 497,
+    "width": 30
+  },
+  "JOB_CLASS_Q": {
+    "height": 15,
+    "left": 90,
+    "top": 497,
+    "width": 30
+  },
+  "JOB_CLASS_WARRANTY_IMG": {
+    "height": 25,
+    "left": 145,
+    "top": 491,
+    "width": 119
+  },
+  "LABEL_POPUP_ITEM_DESC_IMG": {
+    "height": 21,
+    "left": 57,
+    "top": 168,
+    "width": 92
+  },
+  "NEUTRAL_AREA_IMG": {
+    "height": 17,
+    "left": 51,
+    "top": 279,
+    "width": 69
+  },
+  "NO_BUTTON_IMG": {
+    "height": 30,
+    "left": 423,
+    "top": 286,
+    "width": 83
+  },
+  "NO_PRINT_LABEL_IMG": {
+    "height": 14,
+    "left": 491,
+    "top": 512,
+    "width": 45
+  },
+  "PRICE_CELL_NEWLINE": {
+    "height": 16,
+    "left": 1008,
+    "top": 607,
+    "width": 65
+  },
+  "PRINTED_CUST_NAME": {
+    "height": 13,
+    "left": 106,
+    "top": 88,
+    "width": 314
+  },
+  "PRINTED_CUST_NO": {
+    "height": 14,
+    "left": 104,
+    "top": 62,
+    "width": 49
+  },
+  "PRINTED_DATE": {
+    "height": 14,
+    "left": 543,
+    "top": 34,
+    "width": 69
+  },
+  "PRINTED_REF_NO": {
+    "height": 14,
+    "left": 105,
+    "top": 34,
+    "width": 72
+  },
+  "REF_FIELD_LABEL_IMG": {
+    "height": 18,
+    "left": 13,
+    "top": 30,
+    "width": 81
+  },
+  "REPAIR_OF_TOOLS_TEXTBOX": {
+    "height": 18,
+    "left": 213,
+    "top": 300,
+    "width": 100
+  },
+  "SAVE_BUTTON_IMG": {
+    "height": 27,
+    "left": 815,
+    "top": 199,
+    "width": 87
+  },
+  "TITLE_ADD_QUOTES_IMG": {
+    "height": 24,
+    "left": 535,
+    "top": 418,
+    "width": 73
+  }
+}

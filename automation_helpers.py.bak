@@ -1,0 +1,105 @@
+import os
+import json
+import time
+import logging
+import pyautogui
+from tkinter import messagebox
+
+HELPERS_PATH = os.path.abspath(__file__)
+# --- CONFIGURATION ---
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), "search_regions.json")
+try:
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        SEARCH_REGIONS = json.load(f)
+except FileNotFoundError:
+    SEARCH_REGIONS = {}
+
+# --- IMAGE ASSETS ---
+# Update IMAGE_FOLDER to match your app's images directory
+IMAGE_FOLDER = r"C:\Users\User\Pictures\TKINTER JOB APP\App folder\images"
+IMAGE_ASSETS = {
+    "REF_FIELD_LABEL_IMG":    os.path.join(IMAGE_FOLDER, "ref_field_label.png"),
+    "SAVE_BUTTON_IMG":        os.path.join(IMAGE_FOLDER, "button_save.png"),
+    "JOB_CLASS_EMPTY_IMG":    os.path.join(IMAGE_FOLDER, "job_class_empty.png"),
+    "JOB_CLASS_WARRANTY_IMG": os.path.join(IMAGE_FOLDER, "job_class_warranty.png"),
+    "NO_PRINT_LABEL_IMG":     os.path.join(IMAGE_FOLDER, "no_print_label.png"),
+    "NO_BUTTON_IMG":          os.path.join(IMAGE_FOLDER, "no_button.png"),
+    "NEUTRAL_AREA_IMG":       os.path.join(IMAGE_FOLDER, "neutral_area.png"),
+    "HEADER_ITEM_DESC_IMG":   os.path.join(IMAGE_FOLDER, "header_item_desc.png"),
+    "TITLE_ADD_QUOTES_IMG":   os.path.join(IMAGE_FOLDER, "title_add_quotes.png"),
+    "LABEL_POPUP_ITEM_DESC_IMG": os.path.join(IMAGE_FOLDER, "label_popup_item_desc.png"),
+    "BUTTON_POPUP_SAVE_IMG":  os.path.join(IMAGE_FOLDER, "button_popup_save.png"),
+}
+
+# --- LOGGING & CONSTANTS ---
+logger = logging.getLogger(__name__)
+DEFAULT_TIMEOUT = 10
+CONFIDENCE_LEVEL = 0.85
+
+# --- REGION UTILITIES ---
+def get_region(key: str):
+    """Return (left, top, width, height) for a named region from JSON config."""
+    r = SEARCH_REGIONS.get(key)
+    if not r:
+        raise KeyError(f"No region named '{key}' in {CONFIG_PATH}")
+    return (r["left"], r["top"], r["width"], r["height"])
+
+# --- HELPER FUNCTIONS ---
+def find_and_click(key: str, timeout: int = DEFAULT_TIMEOUT) -> bool:
+    """
+    Finds the image for `key` on screen within its configured region and clicks its center.
+    Returns True if clicked, False if timed out.
+    """
+    image_path = IMAGE_ASSETS.get(key)
+    if not image_path:
+        raise KeyError(f"No image asset for key '{key}'")
+    region = get_region(key)
+    end_time = time.time() + timeout
+    while time.time() < end_time:
+        try:
+            loc = pyautogui.locateCenterOnScreen(
+                image_path,
+                confidence=CONFIDENCE_LEVEL,
+                region=region,
+                grayscale=True
+            )
+            if loc:
+                logger.info(f"✅ Found '{key}' at {loc}. Clicking.")
+                pyautogui.click(loc)
+                return True
+        except Exception as e:
+            logger.error(f"Error in find_and_click for '{key}': {e}", exc_info=True)
+            break
+        time.sleep(0.5)
+    logger.error(f"❌ Timed out after {timeout}s. Could not find '{key}'")
+    return False
+
+
+def find_label_and_click_offset(key: str, x_offset: int = 0, y_offset: int = 0, timeout: int = DEFAULT_TIMEOUT) -> bool:
+    """
+    Finds the image for `key` on screen within its configured region,
+    then clicks at an (x_offset, y_offset) from its center.
+    """
+    image_path = IMAGE_ASSETS.get(key)
+    if not image_path:
+        raise KeyError(f"No image asset for key '{key}'")
+    region = get_region(key)
+    end_time = time.time() + timeout
+    while time.time() < end_time:
+        try:
+            loc = pyautogui.locateCenterOnScreen(
+                image_path,
+                confidence=CONFIDENCE_LEVEL,
+                region=region,
+                grayscale=True
+            )
+            if loc:
+                click_point = (loc.x + x_offset, loc.y + y_offset)
+                logger.info(f"✅ Found '{key}' at {loc}. Clicking offset target at {click_point}.")
+                pyautogui.click(click_point)
+                return True
+        except Exception:
+            pass
+        time.sleep(0.5)
+    logger.error(f"❌ Timed out after {timeout}s. Could not find '{key}'")
+    return False
