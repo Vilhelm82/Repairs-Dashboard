@@ -1,0 +1,236 @@
+{
+  "task_name": "Update Job Notes",
+  "description": "An automated task.",
+  "steps": [
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "2"
+      },
+      "on_failure": "stop_with_error",
+      "step": 1,
+      "name": "Step 1: sleep"
+    },
+    {
+      "step": 2,
+      "name": "Step 2: double_click_offset",
+      "action": "double_click_offset",
+      "target_image": "REF_FIELD_LABEL_IMG",
+      "parameters": {
+        "param1": "100"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "type_from_context",
+      "target_image": null,
+      "parameters": {
+        "param1": "job_ref"
+      },
+      "on_failure": "stop_with_error",
+      "step": 3,
+      "name": "Step 3: type_from_context"
+    },
+    {
+      "step": 4,
+      "name": "Step 4: press_key",
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "enter"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "wait_for_target",
+      "target_image": "JOB_CARD_LOADED_CUE_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error",
+      "step": 5,
+      "name": "Step 5: wait_for_target"
+    },
+    {
+      "step": 6,
+      "name": "Step 6: click_center",
+      "action": "click_center",
+      "target_image": "NEUTRAL_AREA_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "2"
+      },
+      "on_failure": "stop_with_error",
+      "step": 7,
+      "name": "Step 7: sleep"
+    },
+    {
+      "action": "count_list_items",
+      "target_image": "ITEM_TEXT_BOX_FULL",
+      "parameters": {
+        "param1": "current_aden_notes",
+        "param2": "line_count"
+      },
+      "on_failure": "stop_with_error",
+      "step": 8,
+      "name": "Step 8: count_list_items"
+    },
+    {
+      "action": "press_key_context",
+      "target_image": null,
+      "parameters": {
+        "param1": "down",
+        "param2": "line_count"
+      },
+      "on_failure": "stop_with_error",
+      "step": 9,
+      "name": "Step 9: press_key_context"
+    },
+    {
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "right"
+      },
+      "on_failure": "stop_with_error",
+      "step": 10,
+      "name": "Step 10: press_key"
+    },
+    {
+      "action": "type_text",
+      "target_image": null,
+      "parameters": {
+        "param1": ".r"
+      },
+      "on_failure": "stop_with_error",
+      "step": 11,
+      "name": "Step 11: type_text"
+    },
+    {
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "enter"
+      },
+      "on_failure": "stop_with_error",
+      "step": 12,
+      "name": "Step 12: press_key"
+    },
+    {
+      "action": "double_click_center",
+      "target_image": "REPAIR_OF_TOOLS_TEXTBOX",
+      "parameters": {},
+      "on_failure": "stop_with_error",
+      "step": 13,
+      "name": "Step 13: double_click_center"
+    },
+    {
+      "action": "click_offset",
+      "target_image": "LABEL_POPUP_ITEM_DESC_IMG",
+      "parameters": {
+        "param1": "200"
+      },
+      "on_failure": "stop_with_error",
+      "step": 14,
+      "name": "Step 14: click_offset"
+    },
+    {
+      "action": "type_from_context",
+      "target_image": null,
+      "parameters": {
+        "param1": "new_text_line_1"
+      },
+      "on_failure": "stop_with_error",
+      "step": 15,
+      "name": "Step 15: type_from_context"
+    },
+    {
+      "action": "click_center",
+      "target_image": "BUTTON_POPUP_SAVE_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error",
+      "step": 16,
+      "name": "Step 16: click_center"
+    },
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "2"
+      },
+      "on_failure": "stop_with_error",
+      "step": 17,
+      "name": "Step 17: sleep"
+    },
+    {
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "right"
+      },
+      "on_failure": "stop_with_error",
+      "step": 18,
+      "name": "Step 18: press_key"
+    },
+    {
+      "action": "type_text",
+      "target_image": null,
+      "parameters": {
+        "param1": "00"
+      },
+      "on_failure": "stop_with_error",
+      "step": 19,
+      "name": "Step 19: type_text"
+    },
+    {
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "enter"
+      },
+      "on_failure": "stop_with_error",
+      "step": 20,
+      "name": "Step 20: press_key"
+    },
+    {
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "enter"
+      },
+      "on_failure": "stop_with_error",
+      "step": 21,
+      "name": "Step 21: press_key"
+    },
+    {
+      "step": 22,
+      "name": "Step 22: click_center",
+      "action": "click_center",
+      "target_image": "NO_PRINT_LABEL_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 23,
+      "name": "Step 23: click_center",
+      "action": "click_center",
+      "target_image": "SAVE_BUTTON_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "2"
+      },
+      "on_failure": "stop_with_error",
+      "step": 24,
+      "name": "Step 24: sleep"
+    }
+  ]
+}

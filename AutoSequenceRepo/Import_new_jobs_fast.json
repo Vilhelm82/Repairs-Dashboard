@@ -1,0 +1,168 @@
+{
+  "task_name": "Import New Jobs Fast",
+  "description": "An automated task.",
+  "steps": [
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "0.5"
+      },
+      "on_failure": "stop_with_error",
+      "step": 1,
+      "name": "Step 1: sleep"
+    },
+    {
+      "step": 2,
+      "name": "Step 2: double_click_offset",
+      "action": "double_click_offset",
+      "target_image": "REF_FIELD_LABEL_IMG",
+      "parameters": {
+        "param1": "100"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "type_from_context",
+      "target_image": null,
+      "parameters": {
+        "param1": "job_ref"
+      },
+      "on_failure": "stop_with_error",
+      "step": 3,
+      "name": "Step 3: type_from_context"
+    },
+    {
+      "step": 4,
+      "name": "Step 4: press_key",
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "enter"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "1"
+      },
+      "on_failure": "stop_with_error",
+      "step": 5,
+      "name": "Step 5: sleep"
+    },
+    {
+      "action": "wait_for_target",
+      "target_image": "JOB_CARD_LOADED_CUE_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error",
+      "step": 6,
+      "name": "Step 6: wait_for_target"
+    },
+    {
+      "step": 7,
+      "name": "Step 7: click_center",
+      "action": "click_center",
+      "target_image": "NEUTRAL_AREA_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "0.5"
+      },
+      "on_failure": "stop_with_error",
+      "step": 8,
+      "name": "Step 8: sleep"
+    },
+    {
+      "action": "ocr_capture",
+      "target_image": "PRINTED_CUST_NAME",
+      "parameters": {
+        "param1": "customer_name"
+      },
+      "on_failure": "stop_with_error",
+      "step": 9,
+      "name": "Step 9: ocr_capture"
+    },
+    {
+      "action": "ocr_capture",
+      "target_image": "JOB_CLASS_COND",
+      "parameters": {
+        "param1": "Job_Class_Cond"
+      },
+      "on_failure": "stop_with_error",
+      "step": 10,
+      "name": "Step 10: ocr_capture"
+    },
+    {
+      "action": "ocr_capture",
+      "target_image": "PRINTED_CUST_NO",
+      "parameters": {
+        "param1": "customer_no"
+      },
+      "on_failure": "stop_with_error",
+      "step": 11,
+      "name": "Step 11: ocr_capture"
+    },
+    {
+      "action": "ocr_capture",
+      "target_image": "PRINTED_DATE",
+      "parameters": {
+        "param1": "date"
+      },
+      "on_failure": "stop_with_error",
+      "step": 12,
+      "name": "Step 12: ocr_capture"
+    },
+    {
+      "action": "ocr_capture",
+      "target_image": "PRINTED_REF_NO",
+      "parameters": {
+        "param1": "job_ref"
+      },
+      "on_failure": "stop_with_error",
+      "step": 13,
+      "name": "Step 13: ocr_capture"
+    },
+    {
+      "action": "ocr_capture",
+      "target_image": "ITEM_TEXT_BOX_FULL",
+      "parameters": {
+        "param1": "descriptions"
+      },
+      "on_failure": "stop_with_error",
+      "step": 14,
+      "name": "Step 14: ocr_capture"
+    },
+    {
+      "step": 15,
+      "name": "Step 15: click_center",
+      "action": "click_center",
+      "target_image": "NO_PRINT_LABEL_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 16,
+      "name": "Step 16: click_center",
+      "action": "click_center",
+      "target_image": "SAVE_BUTTON_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "0.5"
+      },
+      "on_failure": "stop_with_error",
+      "step": 17,
+      "name": "Step 17: sleep"
+    }
+  ]
+}

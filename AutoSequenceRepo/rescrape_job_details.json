@@ -1,0 +1,130 @@
+{
+  "task_name": "Rescrape Job Details",
+  "description": "Loads an existing job, performs a full re-scrape of all data fields to update the database, and then closes the job.",
+  "steps": [
+    {
+      "step": 1,
+      "name": "Step 1: Focus the job reference field.",
+      "action": "double_click_offset",
+      "target_image": "REF_FIELD_LABEL_IMG",
+      "parameters": {
+        "param1": "100"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 2,
+      "name": "Step 2: Type the Job Reference from the context.",
+      "action": "type_from_context",
+      "target_image": null,
+      "parameters": {
+        "param1": "job_ref"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 3,
+      "name": "Step 3: Press Enter to load the job.",
+      "action": "press_key",
+      "target_image": null,
+      "parameters": {
+        "param1": "enter"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 4,
+      "name": "Step 4: Wait for the job card to load.",
+      "action": "wait_for_target",
+      "target_image": "JOB_CARD_LOADED_CUE_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 5,
+      "name": "Step 5: Capture Customer Name.",
+      "action": "ocr_capture",
+      "target_image": "PRINTED_CUST_NAME",
+      "parameters": {
+        "param1": "customer_name"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 6,
+      "name": "Step 6: Capture Job Class.",
+      "action": "ocr_capture",
+      "target_image": "JOB_CLASS_COND",
+      "parameters": {
+        "param1": "Job_Class_Cond"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 7,
+      "name": "Step 7: Capture Customer No.",
+      "action": "ocr_capture",
+      "target_image": "PRINTED_CUST_NO",
+      "parameters": {
+        "param1": "customer_no"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 8,
+      "name": "Step 8: Capture Date.",
+      "action": "ocr_capture",
+      "target_image": "PRINTED_DATE",
+      "parameters": {
+        "param1": "date"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 9,
+      "name": "Step 9: Capture and verify Job Ref.",
+      "action": "ocr_capture",
+      "target_image": "PRINTED_REF_NO",
+      "parameters": {
+        "param1": "job_ref"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 10,
+      "name": "Step 10: Capture descriptions and find Tool Subject.",
+      "action": "ocr_capture",
+      "target_image": "ITEM_TEXT_BOX_FULL",
+      "parameters": {
+        "param1": "descriptions"
+      },
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 11,
+      "name": "Step 11: Click 'No Print' label.",
+      "action": "click_center",
+      "target_image": "NO_PRINT_LABEL_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 12,
+      "name": "Step 12: Click 'Save' button.",
+      "action": "click_center",
+      "target_image": "SAVE_BUTTON_IMG",
+      "parameters": {},
+      "on_failure": "stop_with_error"
+    },
+    {
+      "step": 13,
+      "name": "Step 13: Wait for app to return to ready state.",
+      "action": "sleep",
+      "target_image": null,
+      "parameters": {
+        "param1": "2"
+      },
+      "on_failure": "stop_with_error"
+    }
+  ]
+}
